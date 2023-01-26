@@ -29,48 +29,153 @@
       <main class="calendar"></main>
     </div>
 
-    <div class="editEvent">
-      <h2>Add new idea item</h2>
-      <label>
-        Title
-        <input type="text" name="title" placeholder="Title goes here" />
-      </label>
-      <label>
-        Description
-        <input type="text" name="description" />
-      </label>
-      <label>
-        Date and time
-        <input
-          type="datetime-local"
-          min="1920-01-01T00:00"
-          max="2030-01-01T00:00"
-        />
-      </label>
-      <button type="submit" class="btnSave">Save</button>
-    </div>
-    <div class="newEvent">
-      <h2>Add new idea item</h2>
-      <label>
-        Title
-        <input type="text" name="title" placeholder="Title goes here" />
-      </label>
-      <label>
-        Description
-        <input type="text" name="description" />
-      </label>
-      <label>
-        Date and time
-        <input
-          type="datetime-local"
-          min="1920-01-01T00:00"
-          max="2030-01-01T00:00"
-        />
-      </label>
-      <button type="submit" class="btnSave">Save</button>
+    <div class="newEvent newEventModal">
+      <h2 class="text">Add new idea item</h2>
+      <form class="form">
+        <label class="text">
+          Title
+          <input
+            class="input"
+            type="text"
+            name="title"
+            placeholder="Title goes here"
+            required
+          />
+        </label>
+        <label class="text">
+          Description
+          <input type="text" name="description" />
+        </label>
+        <label class="text">
+          Date and time
+          <input
+            class="input"
+            type="datetime-local"
+            min="1920-01-01T00:00"
+            max="2030-01-01T00:00"
+            required
+          />
+        </label>
+        <button type="submit" class="btnSave">Save</button>
+        <button type="submit" class="btnCancel">Cancel</button>
+      </form>
     </div>
 
-    <div class="modalAddEvent"></div>
+    <div class="editEvent editEventModal">
+      <h2 class="text">Edit idea item</h2>
+      <form class="form">
+        <label class="text">
+          Title
+          <input
+            class="input"
+            type="text"
+            name="title"
+            placeholder="Title goes here"
+            required
+          />
+        </label>
+        <label class="text">
+          Description
+          <input type="text" name="description" />
+        </label>
+        <label class="text">
+          Date and time
+          <input
+            class="input"
+            type="datetime-local"
+            min="1920-01-01T00:00"
+            max="2030-01-01T00:00"
+            required
+          />
+        </label>
+        <button type="submit" class="btnSave">Save</button>
+        <button type="submit" class="btnCancel">Cancel</button>
+      </form>
+    </div>
+
+    <div class="modalBackDrop"></div>
+
+    <!-- Modal window -->
+
+    <!-- <div class="backdrop is-hidden" data-modal>
+      <div class="modal">
+        <form class="modal__form">
+          <p class="modal__title">Оставьте свои данные, мы вам перезвоним</p>
+          <div class="modal__form-field">
+            <label for="name" class="modal__form-label">Имя</label>
+            <div class="modal__position">
+              <input
+                type="text"
+                name="name"
+                id="name"
+                class="modal__form-input"
+                placeholder=" "
+              />
+              <svg class="modal__icon">
+                <use href="./images/icons.svg#icon-person"></use>
+              </svg>
+            </div>
+          </div>
+          <div class="modal__form-field">
+            <label for="tel" class="modal__form-label">Телефон</label>
+            <div class="modal__position">
+              <input
+                type="tel"
+                name="tel"
+                id="tel"
+                class="modal__form-input"
+                placeholder=" "
+              />
+
+              <svg class="modal__icon">
+                <use href="./images/icons.svg#icon-phone2"></use>
+              </svg>
+            </div>
+          </div>
+          <div class="modal__form-field">
+            <label for="email" class="modal__form-label">Почта</label>
+            <div class="modal__position">
+              <input
+                type="email"
+                name="email"
+                class="modal__form-input"
+                placeholder=" "
+              />
+              <svg class="modal__icon">
+                <use href="./images/icons.svg#icon-email"></use>
+              </svg>
+            </div>
+          </div>
+          <div class="modal__form-field">
+            <label for="comment" class="modal__form-label">Комментарий</label>
+            <textarea
+              name="comment"
+              id="comment"
+              placeholder="Введите текст"
+              class="modal__form-textarea"
+            ></textarea>
+          </div>
+          <label class="modal__check-field">
+            <input type="checkbox" class="modal__checkbox" name="checkbox" />
+            <span class="modal__checkbox-label"></span>
+            <span class="modal__agreement">
+              Соглашаюсь с рассылкой и принимаю
+              <span>
+                <a href="" class="modal__agreement-two">Условия договора</a>
+              </span>
+            </span>
+          </label>
+
+          <button type="submit" class="modal__btn-send">Отправить</button>
+        </form>
+        <button data-modal-close type="button" class="modal__btn-close">
+          <svg class="modal__icon-close">
+            <use href="./images/icons.svg#icon-close"></use>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <script src="./js/modal.js"></script> -->
 
     <script src="./script.js"></script>
   </body>

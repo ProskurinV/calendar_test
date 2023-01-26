@@ -5,10 +5,12 @@ let events = localStorage.getItem('events')
   : [];
 
 const calendar = document.querySelector('.calendar');
-
-const newEventModal = document.querySelector('btn-event');
-
-const backDrop = document.querySelector('modalAddEvent');
+const newEventModal = document.querySelector('.newEventModal');
+const deleteEventModal = document.querySelector('.deleteEventModal');
+const backDrop = document.querySelector('.modalBackDrop');
+// const form = document.querySelector('form');
+// const inputs = document.querySelector('.form').elements;
+const input = document.querySelector('input');
 
 const weekdays = [
   'Monday',
@@ -20,15 +22,30 @@ const weekdays = [
   'Sunday',
 ];
 
-function openEventModal() {}
+// function openEventModal() {}
 
-function openEditModal(events) {
-  clicked = events;
+// function openEditModal(events) {
+//   clicked = events;
 
-  const newEvent = events.find(event => event.events === clicked);
+//   const newEvent = events.find(event => event.events === clicked);
+
+//   if (newEvent) {
+//     console.log('Event is already exist');
+//   } else {
+//     newEventModal.style.display = 'block';
+//   }
+
+//   backDrop.style.display = 'block';
+// }
+
+function openModal(date) {
+  clicked = date;
+
+  const newEvent = events.find(event => event.date === clicked);
 
   if (newEvent) {
-    console.log('Event is already exist');
+    document.getElementById('eventText').innerText = newEvent.title;
+    deleteEventModal.style.display = 'block';
   } else {
     newEventModal.style.display = 'block';
   }
@@ -73,9 +90,9 @@ function load() {
 
     if (i > paddingDays) {
       dayOfWeek.innerText = i - paddingDays;
-      //   dayOfWeek.addEventListener('click', () => {
-      //     console.log('click event');
-      //   });
+      dayOfWeek.addEventListener('click', () =>
+        openModal(`${month + 1}/${i - paddingDays}/${year}`)
+      );
     } else {
       dayOfWeek.classList.add('padding');
     }
@@ -94,6 +111,38 @@ function load() {
 //   openEventModal();
 // });
 
+// function openEventModal() {
+//   document.querySelector('.btn-event').addEventListener('click', () => {
+//     openEditModal();
+//   });
+// }
+
+function saveEvent() {
+  //   const formData = new FormData(form);
+  //   console.log(formData);
+  if (input.value) {
+    input.classList.remove('error');
+
+    events.push({
+      date: clicked,
+      title: input.elements.value,
+    });
+
+    localStorage.setItem('events', JSON.stringify(events));
+  } else {
+    input.classList.add('error');
+  }
+}
+
+function closeModal() {
+  input.classList.remove('error');
+  newEventModal.style.display = 'none';
+  backDrop.style.display = 'none';
+  form.reset();
+  clicked = null;
+  load();
+}
+
 function initButton() {
   document.querySelector('.btn-next').addEventListener('click', () => {
     monthNav += 1;
@@ -104,6 +153,9 @@ function initButton() {
     monthNav -= 1;
     load();
   });
+
+  document.querySelector('.btnSave').addEventListener('click', saveEvent);
+  document.querySelector('.btnCancel').addEventListener('click', closeModal);
 }
 
 initButton();
