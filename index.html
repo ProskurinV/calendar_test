@@ -29,6 +29,26 @@
       <main class="calendar"></main>
     </div>
 
+    <div class="editEvent">
+      <h2>Add new idea item</h2>
+      <label>
+        Title
+        <input type="text" name="title" placeholder="Title goes here" />
+      </label>
+      <label>
+        Description
+        <input type="text" name="description" />
+      </label>
+      <label>
+        Date and time
+        <input
+          type="datetime-local"
+          min="1920-01-01T00:00"
+          max="2030-01-01T00:00"
+        />
+      </label>
+      <button type="submit" class="btnSave">Save</button>
+    </div>
     <div class="newEvent">
       <h2>Add new idea item</h2>
       <label>

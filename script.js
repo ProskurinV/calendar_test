@@ -22,19 +22,19 @@ const weekdays = [
 
 function openEventModal() {}
 
-// function openEditModal(events) {
-//   clicked = events;
+function openEditModal(events) {
+  clicked = events;
 
-//   const newEvent = events.find(event => event.events === clicked);
+  const newEvent = events.find(event => event.events === clicked);
 
-//   if (newEvent) {
-//     console.log('Event is already exist');
-//   } else {
-//     newEventModal.style.display = 'block';
-//   }
+  if (newEvent) {
+    console.log('Event is already exist');
+  } else {
+    newEventModal.style.display = 'block';
+  }
 
-//   backDrop.style.display = 'block';
-// }
+  backDrop.style.display = 'block';
+}
 
 function load() {
   const date = new Date();
@@ -90,9 +90,9 @@ function load() {
   console.log(day, month, year);
 }
 
-document.querySelector('btn-event').addEventListener('click', () => {
-  openEventModal();
-});
+// document.querySelector('btn-event').addEventListener('click', () => {
+//   openEventModal();
+// });
 
 function initButton() {
   document.querySelector('.btn-next').addEventListener('click', () => {
