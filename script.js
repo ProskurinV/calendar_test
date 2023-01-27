@@ -98,37 +98,37 @@ function load() {
   }
 }
 
-// function closeModal() {
-//   eventTitleInput.classList.remove('error');
-//   newEventModal.style.display = 'none';
-//   deleteEventModal.style.display = 'none';
-//   backDrop.style.display = 'none';
-//   eventTitleInput.value = '';
-//   clicked = null;
-//   load();
-// }
+function closeModal() {
+  eventTitleInput.classList.remove('error');
+  newEventModal.style.display = 'none';
+  deleteEventModal.style.display = 'none';
+  backDrop.style.display = 'none';
+  eventTitleInput.value = '';
+  clicked = null;
+  load();
+}
 
-// function saveEvent() {
-//   if (eventTitleInput.value) {
-//     eventTitleInput.classList.remove('error');
+function saveEvent() {
+  if (eventTitleInput.value) {
+    eventTitleInput.classList.remove('error');
 
-//     events.push({
-//       date: clicked,
-//       title: eventTitleInput.value,
-//     });
+    events.push({
+      date: clicked,
+      title: eventTitleInput.value,
+    });
 
-//     localStorage.setItem('events', JSON.stringify(events));
-//     closeModal();
-//   } else {
-//     eventTitleInput.classList.add('error');
-//   }
-// }
+    localStorage.setItem('events', JSON.stringify(events));
+    closeModal();
+  } else {
+    eventTitleInput.classList.add('error');
+  }
+}
 
-// function deleteEvent() {
-//   events = events.filter(e => e.date !== clicked);
-//   localStorage.setItem('events', JSON.stringify(events));
-//   closeModal();
-// }
+function deleteEvent() {
+  events = events.filter(e => e.date !== clicked);
+  localStorage.setItem('events', JSON.stringify(events));
+  closeModal();
+}
 
 function initButton() {
   document.querySelector('.btn-next').addEventListener('click', () => {
@@ -144,12 +144,12 @@ function initButton() {
   // document.querySelector('.btnSave').addEventListener('click', saveEvent);
   // document.querySelector('.btnCancel').addEventListener('click', closeModal);
 
-  // document.getElementById('saveButton').addEventListener('click', saveEvent);
-  // document.getElementById('cancelButton').addEventListener('click', closeModal);
-  // document
-  //   .getElementById('deleteButton')
-  //   .addEventListener('click', deleteEvent);
-  // document.getElementById('closeButton').addEventListener('click', closeModal);
+  document.getElementById('saveButton').addEventListener('click', saveEvent);
+  document.getElementById('cancelButton').addEventListener('click', closeModal);
+  document
+    .getElementById('deleteButton')
+    .addEventListener('click', deleteEvent);
+  document.getElementById('closeButton').addEventListener('click', closeModal);
 }
 
 initButton();

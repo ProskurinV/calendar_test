@@ -75,6 +75,7 @@ button {
   flex-direction: column;
   justify-content: space-between;
 }
+
 .day:hover {
   background-color: #e8faed;
 }
@@ -82,8 +83,7 @@ button {
 .day + #currentDay {
   background-color: #e8f4fa;
 }
-.newEvent,
-.editEvent {
+.event {
   display: flex;
   flex-direction: column;
   font-size: 10px;
@@ -116,9 +116,8 @@ label {
   border-color: #f44336;
 }
 
-.newEventModal,
-.editEventModal,
-.deleteEventModal {
+#newEventModal,
+#deleteEventModal {
   display: none;
   z-index: 20;
   padding: 25px;
@@ -147,16 +146,28 @@ label {
   border: 2px solid red;
 }
 
-.btnCancel {
+/* .btnCancel {
   background-color: #d36c6c;
 }
 .btnSave {
   background-color: #92a1d1;
   margin-right: 10px;
+} */
+
+#cancelButton,
+#deleteButton {
+  background-color: #d36c6c;
 }
+
+#saveButton,
+#closeButton {
+  background-color: #92a1d1;
+}
+
 #eventText {
   font-size: 14px;
 }
+
 .modalBackDrop {
   display: none;
   top: 0px;
