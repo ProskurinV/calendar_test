@@ -8,10 +8,11 @@ const calendar = document.querySelector('.calendar');
 const newEventModal = document.querySelector('.newEventModal');
 const deleteEventModal = document.querySelector('.deleteEventModal');
 const backDrop = document.querySelector('.modalBackDrop');
-// const form = document.querySelector('form');
-// const inputs = document.querySelector('.form').elements;
-// const input = document.querySelector('input');
+const form = document.querySelector('form');
+
 const eventTitleInput = document.getElementById('eventTitleInput');
+
+const openModalBtn = document.querySelector('btn-event');
 
 const weekdays = [
   'Monday',
@@ -23,18 +24,24 @@ const weekdays = [
   'Sunday',
 ];
 
+// form.addEventListener('submit', formSubmit);
+
+// function formSubmit(event) {
+//   event.preventDefault();
+
+//   const formData = new FormData(event.currentTarget);
+//   console.log(formData);
+// }
+
 function openModal(date) {
   clicked = date;
-
-  const newEvent = events.find(event => event.events === clicked);
-
+  const newEvent = events.find(event => event.date === clicked);
   if (newEvent) {
-    document.getElementById('eventText').innerText = newEvent.title;
+    document.querySelector('.eventText').innerText = newEvent.title;
     deleteEventModal.style.display = 'block';
   } else {
     newEventModal.style.display = 'block';
   }
-
   backDrop.style.display = 'block';
 }
 
@@ -140,9 +147,6 @@ function initButton() {
     monthNav -= 1;
     load();
   });
-
-  // document.querySelector('.btnSave').addEventListener('click', saveEvent);
-  // document.querySelector('.btnCancel').addEventListener('click', closeModal);
 
   document.getElementById('saveButton').addEventListener('click', saveEvent);
   document.getElementById('cancelButton').addEventListener('click', closeModal);

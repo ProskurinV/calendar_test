@@ -10,12 +10,22 @@
   <body>
     <div class="container">
       <header class="header">
-        <button class="btn-event">Add event</button>
+        <!-- <button class="btn-event">Add event</button> -->
         <div class="monthNav">
           <button class="btn-back">Back</button>
           <div class="monthDisplay"></div>
           <button class="btn-next">Next</button>
         </div>
+        <!-- <div>
+          <label for="start">Start date:</label>
+          <input
+            type="date"
+            id="start"
+            name="trip-start"
+            min="2018-01-01"
+            max="2018-12-31"
+          />
+        </div> -->
       </header>
 
       <div class="weekdays">
@@ -60,11 +70,10 @@
           />
         </label>
         <button type="submit" class="btnSave">Save</button>
-        <button type="submit" class="btnCancel">Cancel</button>
       </form>
-    </div>
+    </div> -->
 
-    <div class="editEventModal">
+    <!-- <div class="editEventModal">
       <h2 class="text">Edit idea item</h2>
       <form class="form">
         <label class="text">
@@ -96,7 +105,7 @@
       </form>
     </div> -->
 
-    <div id="newEventModal">
+    <div class="newEventModal">
       <h2>New Event</h2>
 
       <input id="eventTitleInput" placeholder="Event Title" />
@@ -105,10 +114,10 @@
       <button id="cancelButton">Cancel</button>
     </div>
 
-    <div id="deleteEventModal">
+    <div class="deleteEventModal">
       <h2>Event</h2>
 
-      <p id="eventText"></p>
+      <p class="eventText"></p>
 
       <button id="deleteButton">Delete</button>
       <button id="closeButton">Close</button>
@@ -119,59 +128,3 @@
     <script src="./script.js"></script>
   </body>
 </html>
-
-<!-- <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Calendar App Vanilla JS</title>
-
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <div id="container">
-      <div id="header">
-        <div id="monthDisplay"></div>
-        <div>
-          <button id="backButton">Back</button>
-          <button id="nextButton">Next</button>
-        </div>
-      </div>
-
-      <div id="weekdays">
-        <div>Sunday</div>
-        <div>Monday</div>
-        <div>Tuesday</div>
-        <div>Wednesday</div>
-        <div>Thursday</div>
-        <div>Friday</div>
-        <div>Saturday</div>
-      </div>
-
-      <div id="calendar"></div>
-    </div>
-
-    <div id="newEventModal">
-      <h2>New Event</h2>
-
-      <input id="eventTitleInput" placeholder="Event Title" />
-
-      <button id="saveButton">Save</button>
-      <button id="cancelButton">Cancel</button>
-    </div>
-
-    <div id="deleteEventModal">
-      <h2>Event</h2>
-
-      <p id="eventText"></p>
-
-      <button id="deleteButton">Delete</button>
-      <button id="closeButton">Close</button>
-    </div>
-
-    <div id="modalBackDrop"></div>
-
-    <script src="./script.js"></script>
-  </body>
-</html> -->
