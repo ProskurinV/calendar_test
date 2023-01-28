@@ -143,6 +143,7 @@ label {
 }
 
 .newEventModal,
+.editEventModal,
 .deleteEventModal {
   display: none;
   z-index: 20;

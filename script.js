@@ -6,7 +6,8 @@ let events = localStorage.getItem('events')
 
 const calendar = document.querySelector('.calendar');
 const newEventModal = document.querySelector('.newEventModal');
-const deleteEventModal = document.querySelector('.deleteEventModal');
+const editEventModal = document.querySelector('.editEventModal');
+
 const backDrop = document.querySelector('.modalBackDrop');
 const form = document.querySelector('form');
 
@@ -37,8 +38,8 @@ function openModal(date) {
   clicked = date;
   const newEvent = events.find(event => event.date === clicked);
   if (newEvent) {
-    document.querySelector('.editEventModal').innerText = newEvent.title;
-    deleteEventModal.style.display = 'block';
+    document.querySelector('.eventText').innerText = newEvent.title;
+    editEventModal.style.display = 'block';
   } else {
     newEventModal.style.display = 'block';
   }
@@ -108,7 +109,7 @@ function load() {
 function closeModal() {
   eventTitleInput.classList.remove('error');
   newEventModal.style.display = 'none';
-  deleteEventModal.style.display = 'none';
+  editEventModal.style.display = 'none';
   backDrop.style.display = 'none';
   eventTitleInput.value = '';
   clicked = null;
@@ -150,10 +151,10 @@ function initButton() {
 
   document.querySelector('.saveButton').addEventListener('click', saveEvent);
   document.querySelector('.cancelButton').addEventListener('click', closeModal);
-  // document
-  //   .getElementById('deleteButton')
-  //   .addEventListener('click', deleteEvent);
-  // document.getElementById('closeButton').addEventListener('click', closeModal);
+  document
+    .getElementById('deleteButton')
+    .addEventListener('click', deleteEvent);
+  document.getElementById('closeButton').addEventListener('click', closeModal);
 }
 
 initButton();
