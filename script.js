@@ -37,7 +37,7 @@ function openModal(date) {
   clicked = date;
   const newEvent = events.find(event => event.date === clicked);
   if (newEvent) {
-    document.querySelector('.eventText').innerText = newEvent.title;
+    document.querySelector('.editEventModal').innerText = newEvent.title;
     deleteEventModal.style.display = 'block';
   } else {
     newEventModal.style.display = 'block';
@@ -148,12 +148,12 @@ function initButton() {
     load();
   });
 
-  document.getElementById('saveButton').addEventListener('click', saveEvent);
-  document.getElementById('cancelButton').addEventListener('click', closeModal);
-  document
-    .getElementById('deleteButton')
-    .addEventListener('click', deleteEvent);
-  document.getElementById('closeButton').addEventListener('click', closeModal);
+  document.querySelector('.saveButton').addEventListener('click', saveEvent);
+  document.querySelector('.cancelButton').addEventListener('click', closeModal);
+  // document
+  //   .getElementById('deleteButton')
+  //   .addEventListener('click', deleteEvent);
+  // document.getElementById('closeButton').addEventListener('click', closeModal);
 }
 
 initButton();
