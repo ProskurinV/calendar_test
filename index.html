@@ -63,7 +63,7 @@
           Date and time
           <input
             class="input"
-            type="date"
+            type="datetime-local"
             min="1920-01-01T00:00"
             max="2030-01-01T00:00"
             required
@@ -81,6 +81,7 @@
         <label class="text">
           Title
           <input
+            id="eventTitleInput"
             class="input"
             type="text"
             name="title"
@@ -103,7 +104,6 @@
           />
         </label>
       </form>
-
       <button id="deleteButton">Delete</button>
       <button class="saveButton">Save</button>
       <button id="closeButton">Close</button>

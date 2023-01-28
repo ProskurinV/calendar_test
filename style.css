@@ -143,8 +143,7 @@ label {
 }
 
 .newEventModal,
-.editEventModal,
-.deleteEventModal {
+.editEventModal {
   display: none;
   z-index: 20;
   padding: 25px;

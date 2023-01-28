@@ -25,15 +25,6 @@ const weekdays = [
   'Sunday',
 ];
 
-// form.addEventListener('submit', formSubmit);
-
-// function formSubmit(event) {
-//   event.preventDefault();
-
-//   const formData = new FormData(event.currentTarget);
-//   console.log(formData);
-// }
-
 function openModal(date) {
   clicked = date;
   const newEvent = events.find(event => event.date === clicked);
@@ -138,6 +129,22 @@ function deleteEvent() {
   closeModal();
 }
 
+function editEvent() {
+  if (eventTitleInput.value) {
+    eventTitleInput.classList.remove('error');
+
+    events.push({
+      date: clicked,
+      title: eventTitleInput.value,
+    });
+
+    localStorage.setItem('events', JSON.stringify(events));
+    closeModal();
+  } else {
+    eventTitleInput.classList.add('error');
+  }
+}
+
 function initButton() {
   document.querySelector('.btn-next').addEventListener('click', () => {
     monthNav += 1;
@@ -150,6 +157,7 @@ function initButton() {
   });
 
   document.querySelector('.saveButton').addEventListener('click', saveEvent);
+  document.querySelector('.saveButton').addEventListener('click', editEvent);
   document.querySelector('.cancelButton').addEventListener('click', closeModal);
   document
     .getElementById('deleteButton')
